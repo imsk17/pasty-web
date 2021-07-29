@@ -18,5 +18,4 @@ export const pasteSlice = createSlice({
 })
 
 export const { setText } = pasteSlice.actions
-
 export default pasteSlice.reducer

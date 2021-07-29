@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import pasteReducer from "./paste"
+import pasteReducer from "./create_paste"
 export const store = configureStore(
   {
     reducer: {

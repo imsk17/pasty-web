@@ -1,10 +1,9 @@
 import { useDispatch } from "react-redux";
-import { setText } from "../store/paste";
+import { setText } from "../store/create_paste";
 import { Appbar } from "../components/Appbar";
 import Footer from "../components/Footer";
-import Head from 'next/head'
+import Head from "next/head";
 export default function Home() {
-
   const dispatch = useDispatch();
   return (
     <>
@@ -12,7 +11,7 @@ export default function Home() {
         <title>Pas.ty | Pastebin and URL Shortner Service</title>
       </Head>
       <div className="font-mono flex flex-col w-screen h-screen">
-        <Appbar />
+        <Appbar show={true} />
         <textarea
           onChange={(e) => {
             dispatch(setText(e.target.value));
