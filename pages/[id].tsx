@@ -13,13 +13,14 @@ export default function Paste() {
   const { id } = router.query;
   const [paste, setPaste] = useState<PasteState>({
     text: "",
+    is_modifiable: false,
   });
 
   useEffect(() => {
     if (id === undefined) return;
     Get(`${id}`).then((data) => {
       if (typeof data != undefined) {
-        setPaste({ text: data!.content });
+        setPaste({ text: data!.content, is_modifiable: data!.isModifiable });
       }
     });
   }, [id]);
@@ -27,6 +28,7 @@ export default function Paste() {
     <>
       <div className="flex flex-col w-screen h-screen">
         <Appbar show={false} />
+        <p className="text-center text-white font-bold bg-red">Freezed</p>
         <div className="w-full h-full overflow-auto bg-secondarybg font-semibold text-white px-6 py-4">
           <p>{paste.text == "" ? "" : paste.text}</p>
         </div>

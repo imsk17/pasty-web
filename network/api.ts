@@ -1,9 +1,10 @@
 import AddPasteRequest from "../interfaces/AddPasteRequest";
 import AddPasteResponse from "../interfaces/AddPasteResponse";
 
-export async function Save(content: String): Promise<AddPasteResponse | undefined> {
+export async function Save(content: string, modifiability: boolean): Promise<AddPasteResponse | undefined> {
     const body: AddPasteRequest = {
-        content: content
+        content: content,
+        isModifiable: modifiability
     }
     try {
         const response = await fetch("http://localhost:8000/api/paste/", {

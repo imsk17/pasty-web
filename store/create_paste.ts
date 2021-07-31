@@ -1,11 +1,13 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 export interface PasteState {
-  text: string
+  text: string,
+  is_modifiable: boolean
 }
 
 const initialState: PasteState = {
-  text: ""
+  text: "",
+  is_modifiable: true
 }
 export const pasteSlice = createSlice({
   name: "paste",
@@ -13,9 +15,12 @@ export const pasteSlice = createSlice({
   reducers: {
     setText: (state, action: PayloadAction<string>) => {
       state.text = action.payload
+    },
+    setModifiability: (state, action: PayloadAction<boolean>) => {
+      state.is_modifiable = action.payload
     }
   }
 })
 
-export const { setText } = pasteSlice.actions
+export const { setText, setModifiability } = pasteSlice.actions
 export default pasteSlice.reducer

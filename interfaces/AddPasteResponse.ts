@@ -1,6 +1,7 @@
 interface PasteResponse {
     id: string,
     content: string,
-    is_url: boolean,
+    isUrl: boolean,
+    isModifiable: boolean,
 }
 export default PasteResponse

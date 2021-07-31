@@ -1,4 +1,5 @@
 interface AddPasteRequest {
-    content: String
+    content: string,
+    isModifiable: boolean
 }
 export default AddPasteRequest
