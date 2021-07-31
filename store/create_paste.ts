@@ -7,7 +7,7 @@ export interface PasteState {
 
 const initialState: PasteState = {
   text: "",
-  is_modifiable: true
+  is_modifiable: false
 }
 export const pasteSlice = createSlice({
   name: "paste",

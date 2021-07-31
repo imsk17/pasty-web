@@ -32,9 +32,13 @@ const CreateAppBar = ({ show }: { show: boolean }) => {
           dispatch(setModifiability(!is_modifiable));
         }}
       ></input>
-      <p className="text-yellow font-semibold px-2">Freeze Text?</p>
+      <p className="text-yellow font-semibold px-2">Editable?</p>
       <button
         onClick={async () => {
+          if (text == "") {
+            alert("Please enter something before u save.");
+            return;
+          }
           const response = await Save(text, is_modifiable);
           if (typeof response === undefined) {
             alert("Unable to save the paste");

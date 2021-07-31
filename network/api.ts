@@ -25,7 +25,6 @@ export async function Get(id: string): Promise<AddPasteResponse | undefined> {
     try {
         const response = await fetch(`http://localhost:8000/api/paste/${id}`)
         const json: AddPasteResponse = await response.json()
-        console.log(json)
         return json
     } catch (error) {
         console.log(error)
